@@ -4,6 +4,7 @@
  */
 
 package com.mycompany.mavenproject1;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,6 +14,9 @@ public class Mavenproject1 {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("ABC");
+        
     }
     
 }
