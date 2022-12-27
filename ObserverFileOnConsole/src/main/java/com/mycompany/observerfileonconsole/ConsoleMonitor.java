@@ -14,7 +14,19 @@ public class ConsoleMonitor implements IConsoleMonitor {
 
     @Override
     public void UpdateConsoleMonitor(ArrayList<String> list) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.print(list);
+       // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+     private static ConsoleMonitor instance;
+
+    private ConsoleMonitor() {
+    }
+
+    public static ConsoleMonitor getInstans() {
+        if (instance == null) {
+            instance = new ConsoleMonitor();
+        }
+        return instance;
+    }
 }

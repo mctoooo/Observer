@@ -27,30 +27,36 @@ public class FileMonitor implements IFileMonitor {
     }
     @Override
     public void AddConsoleMonitor(IConsoleMonitor cmObj) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(cmObj!=null)
+        { 
+            for(IConsoleMonitor Obj:observers){
+            if( Obj ==cmObj)
+                return;
+            }
+        
+        }
     }
 
     @Override
     public void DelConsoleMonitor(IConsoleMonitor cmObj) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       
     }
 
     @Override
     public void NotifyConsoleMonitor() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    String info;
-   ArrayList<String> list=new ArrayList;
-    for (FileStatus objF:fileObj){
-        if(objF.UpdateInfo()==true){
-        list.add(objF.getInfomsg());
-        
+       // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    ArrayList<String> list = new ArrayList<String>();
+      
+        for(FileStatus objF: fileObj)
+        {   if(objF.UpdateInfo()==true){
+                list.add(objF.getInfomsg());
+            }       
         }
-    }
-    
-    for(IConsoleMonitor obj:observers){
-    
+        if(!list.isEmpty()){
+        for(IConsoleMonitor obj: observers)
+        {
+            obj.UpdateConsoleMonitor(list);
         }
-    
-    }
-    
+      } 
+    }        
 }

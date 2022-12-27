@@ -12,6 +12,14 @@ package com.mycompany.observerfileonconsole;
 public class ObserverFileOnConsole {
 
     public static void main(String[] args) {
+        SingleConsoleMonitor.getInstans().InfoFile("user.txt");
+        FileMonitor monitorObj = new FileMonitor();
+        monitorObj.AddConsoleMonitor(ConsoleMonitor.getInstans());
+        monitorObj.addFile("user.txt");
+        monitorObj.addFile("userA.txt");
+        monitorObj.addFile("userB.txt");
+        monitorObj.NotifyConsoleMonitor();
+        
        //Создаем объект  FileStatus
         FileStatus  usrFile  =  new FileStatus("user.txt");
         System.out.println(usrFile.getInfomsg());
@@ -26,10 +34,10 @@ public class ObserverFileOnConsole {
         while(doCycle == true){
         
 
-        if(usrFile.UpdateInfo() == true)
+       // if(usrFile.UpdateInfo() == true)
         {
             
-            System.out.println(usrFile.getInfomsg());
+           // System.out.println(usrFile.getInfomsg());
 //        System.out.println(usrFile.exist);
 //        Date d = new Date(usrFile.lastModif);
 //        System.out.println(d);
