@@ -11,5 +11,6 @@ import java.util.ArrayList;
  * @author Student
  */
 public interface IConsoleMonitor {
-    void UpdateConsoleMonitor(ArrayList<String>list);
+
+    void UpdateConsoleMonitor(ArrayList<String> list);
 }

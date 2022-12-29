@@ -41,7 +41,6 @@ public class FileMonitor implements IFileMonitor {
     public void DelConsoleMonitor(IConsoleMonitor cmObj) {
        
     }
-
     @Override
     public void NotifyConsoleMonitor() {
        // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody

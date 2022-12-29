@@ -11,15 +11,15 @@ import java.util.ArrayList;
  *
  * @author Student
  */
-public class SingleConsoleMonitor implements IConsoleMonitor{
-    
-    public void InfoFile(String pathNameFile){
-    File obj       = new File(pathNameFile);
-       System.out.println(obj.getName());
-       System.out.println( obj.getPath());
-       System.out.println( obj.length());
-       System.out.println(obj.lastModified());
-       System.out.println(obj.exists());
+public class SingleConsoleMonitor implements IConsoleMonitor {
+
+    public void InfoFile(String pathNameFile) {
+        File obj = new File(pathNameFile);
+        System.out.println(obj.getName());
+        System.out.println(obj.getPath());
+        System.out.println(obj.length());
+        System.out.println(obj.lastModified());
+        System.out.println(obj.exists());
     }
 
     private static SingleConsoleMonitor instance;
@@ -36,6 +36,6 @@ public class SingleConsoleMonitor implements IConsoleMonitor{
 
     @Override
     public void UpdateConsoleMonitor(ArrayList<String> list) {
-         System.out.print(list);
+        System.out.print(list);
     }
 }

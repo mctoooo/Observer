@@ -9,7 +9,10 @@ package com.mycompany.observerfileonconsole;
  * @author Student
  */
 public interface IFileMonitor {
+
     void AddConsoleMonitor(IConsoleMonitor cmObj);
+
     void DelConsoleMonitor(IConsoleMonitor cmObj);
+
     void NotifyConsoleMonitor();
 }

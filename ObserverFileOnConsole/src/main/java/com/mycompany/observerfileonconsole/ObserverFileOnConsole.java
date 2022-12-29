@@ -33,7 +33,6 @@ public class ObserverFileOnConsole {
         boolean doCycle = true;
         while(doCycle == true){
         
-
        // if(usrFile.UpdateInfo() == true)
         {
             
