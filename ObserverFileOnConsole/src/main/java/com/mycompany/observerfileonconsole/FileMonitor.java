@@ -12,51 +12,60 @@ import java.util.ArrayList;
  */
 public class FileMonitor implements IFileMonitor {
 
-    private ArrayList <IConsoleMonitor> observers;
-    
-    private ArrayList <FileStatus> fileObj;
-    
-    FileMonitor(){
-    observers = new ArrayList<IConsoleMonitor>();
-    fileObj = new ArrayList<FileStatus>();
-            }
-    public void addFile(String filePath){
-        // add is equal & проверку файла с одинаковыми полями
-    FileStatus Obj = new FileStatus(filePath);
-    fileObj.add(Obj);
+    private ArrayList<IConsoleMonitor> observers;
+
+    private ArrayList<FileStatus> fileObj;
+
+    FileMonitor() {
+        observers = new ArrayList<IConsoleMonitor>();
+        fileObj = new ArrayList<FileStatus>();
     }
+
+    public void addFile(String filePath) {
+        // add is equal & проверку файла с одинаковыми полями
+        FileStatus Obj = new FileStatus(filePath);
+        fileObj.add(Obj);
+    }
+
     @Override
     public void AddConsoleMonitor(IConsoleMonitor cmObj) {
-        if(cmObj!=null)
-        { 
-            for(IConsoleMonitor Obj:observers){
-            if( Obj ==cmObj)
-                return;
+        if (cmObj != null) {
+            for (IConsoleMonitor Obj : observers) {
+                if (Obj == cmObj) {
+                    return;
+                }
             }
-        observers.add(cmObj);
-          System.out.println("ADD MONITOR");
+            observers.add(cmObj);
+            System.out.println("ADD MONITOR");
         }
     }
 
     @Override
     public void DelConsoleMonitor(IConsoleMonitor cmObj) {
-       
+        if (cmObj != null) {
+            for (IConsoleMonitor Obj : observers) {
+                if (Obj == cmObj) {
+                    observers.remove(cmObj);
+                    System.out.println("REMOVE MONITOR");
+                }
+            }
+        }
     }
+
     @Override
     public void NotifyConsoleMonitor() {
-       // throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    ArrayList<String> list = new ArrayList<String>();
-      
-        for(FileStatus objF: fileObj)
-        {   if(objF.UpdateInfo()==true){
+
+        ArrayList<String> list = new ArrayList<String>();
+
+        for (FileStatus objF : fileObj) {
+            if (objF.UpdateInfo() == true) {
                 list.add(objF.getInfomsg());
-            }       
+            }
         }
-        if(!list.isEmpty()){
-        for(IConsoleMonitor obj: observers)
-        {
-            obj.UpdateConsoleMonitor(list);
+        if (!list.isEmpty()) {
+            for (IConsoleMonitor obj : observers) {
+                obj.UpdateConsoleMonitor(list);
+            }
         }
-      } 
-    }        
+    }
 }

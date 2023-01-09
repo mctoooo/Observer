@@ -18,11 +18,14 @@ public class ObserverFileOnConsole {
         monitorObj.addFile("user.txt");
         monitorObj.addFile("userA.txt");
         monitorObj.addFile("userB.txt");
-        monitorObj.NotifyConsoleMonitor();
         
-       //Создаем объект  FileStatus
-        FileStatus  usrFile  =  new FileStatus("user.txt");
-        System.out.println(usrFile.getInfomsg());
+        boolean doCycle = true;
+        while(doCycle == true){
+        monitorObj.NotifyConsoleMonitor();
+        }
+//      Создаем объект  FileStatus
+//        FileStatus  usrFile  =  new FileStatus("user.txt");
+//        System.out.println(usrFile.getInfomsg());
         
 //        System.out.println(usrFile.exist);
 //        System.out.println(usrFile.lastModif);
@@ -30,11 +33,11 @@ public class ObserverFileOnConsole {
 //        System.out.println(usrFile.nameFile);
 //        System.out.println(usrFile.pathFile);
       
-        boolean doCycle = true;
-        while(doCycle == true){
+//        boolean doCycle = true;
+//        while(doCycle == true){
         
-       // if(usrFile.UpdateInfo() == true)
-        {
+//       if(usrFile.UpdateInfo() == true)
+//        {
             
            // System.out.println(usrFile.getInfomsg());
 //        System.out.println(usrFile.exist);
@@ -44,10 +47,10 @@ public class ObserverFileOnConsole {
 //        System.out.println(usrFile.nameFile);
 //        System.out.println(usrFile.pathFile);
         
-       }
+//       }
         
-      //  System.out.println("Sleep time in ms = "+(System.currentTimeMillis()-start));
-        }
+//       System.out.println("Sleep time in ms = "+(System.currentTimeMillis()-start));
+//        }
     
     }
 }
