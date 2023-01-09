@@ -12,12 +12,12 @@ import java.util.ArrayList;
  */
 public class FileMonitor implements IFileMonitor {
 
-    private ArrayList <ConsoleMonitor> observers;
+    private ArrayList <IConsoleMonitor> observers;
     
     private ArrayList <FileStatus> fileObj;
     
     FileMonitor(){
-    observers = new ArrayList<ConsoleMonitor>();
+    observers = new ArrayList<IConsoleMonitor>();
     fileObj = new ArrayList<FileStatus>();
             }
     public void addFile(String filePath){
@@ -33,7 +33,8 @@ public class FileMonitor implements IFileMonitor {
             if( Obj ==cmObj)
                 return;
             }
-        
+        observers.add(cmObj);
+          System.out.println("ADD MONITOR");
         }
     }
 
